@@ -12,16 +12,21 @@ module.exports = function(app) {
 
 	app.get('/room',function(req,res) {
 		console.log("requested room");
-		//console.log(req.query.username);
+		//console.log(req.session.username);
+		//res.locals.username = req.session.username;
+		//res.body.username = req.session.username;
 		//console.log(__dirname);
-		res.body.username = req.query.username;
-		res.sendFile(__dirname + '/client/chatroom.html');
+		//res.sendFile(__dirname + '/client/chatroom.html');
+		res.render('chatroom', {
+			username: req.session.username
+		})
 	});
 
 	app.post('/signin', function(req, res) {
 		console.log(req.body.username);
 
-		url = '/room?username='+req.body.username;
+		url = '/room';
+		req.session.username = req.body.username;
 		res.redirect(url);
 	});
 }

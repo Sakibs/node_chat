@@ -2,12 +2,13 @@
 <html>
   <head>
     <title>Socket.IO chat</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   </head>
   <body>
     <h1>Welcome to chatrooms</h1>
     <p>Pick a username</p>
     <form method="post" action="/signin">
-	    <input type="text" name="username">
+	    <input type="text" placeholder="anonymous" name="username">
 	    <input type="submit" value="Submit">
 	</form>
   </body>
